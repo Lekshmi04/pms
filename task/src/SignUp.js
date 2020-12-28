@@ -9,8 +9,12 @@ class SignUp  extends React.Component{
     phone:"",
     password:"",
     landmark:"",
+    pincode:"",
     state:"",
     country:""
+  }
+  onPincodeChange=(event)=>{
+    this.setState({pincode:event.target.value});
   }
  
   onUsernameChange=(event)=>{
@@ -37,7 +41,7 @@ class SignUp  extends React.Component{
    onNumberChange=(event)=>{
     this.setState({number:event.target.value});
    }   
-   onSubmit=(event)=>{ 
+   onSignUp=(event)=>{ 
     event.preventDefault();
     let uname=this.state.username;
    let pwd=this.state.password;
@@ -60,40 +64,43 @@ class SignUp  extends React.Component{
              <div className="col-4" ></div>
 <div className='col-4'> 
 <div className="jumbotron" >
-    <form>
+    <form onSubmit={this.onSignUp}>
      <div className="form-group">
        <label for="exampleInputUsername1" >Username</label>
-       <input  type="text" className="form-control" id="uname" aria-describedby="emailHelp" />
+       <input value={this.state.username} onChange={this.onUsernameChange} type="text" className="form-control" id="uname" aria-describedby="emailHelp" />
        
      </div>
      <div className="form-group">
        <label for="exampleInputPassword1" >Address</label>
-       <input type="text" className="form-control" id="addr" />
+       <input value={this.state.address} onChange={this.onAddressChange} type="text" className="form-control" id="addr" />
      </div>
      <div className="form-group">
        <label for="exampleInputemail" >Email</label>
-       <input type="email" className="form-control" id="email" />
+       <input value={this.state.email} onChange={this.onEmailChange}  type="email" className="form-control" id="email" />
      </div>
      <div className="form-group">
        <label for="exampleInputPassword1" >Password</label>
-       <input type="password" className="form-control" id="pwd" />
+       <input value={this.state.password} onChange={this.onPasswordChange} type="password" className="form-control" id="pwd" />
      </div>
      <div className="form-group">
        <label for="exampleInputPassword1" >Phone Number</label>
-       <input type="number" className="form-control" id="phnum" />
+       <input value={this.state.number} onChange={this.onNumberChange} type="number" className="form-control" id="phnum" />
      </div>
      <div className="form-group">
        <label for="exampleInputPassword1" >Landmark</label>
-       <input type="text" className="form-control" id="landmark" />
+       <input value={this.state.landmark} onChange={this.onLandmarkChange} type="text" className="form-control" id="landmark" />
      </div>
-     
+     <div className="form-group">
+       <label for="exampleInputPassword1" >Pincode</label>
+       <input value={this.state.pincode} onChange={this.onPincodeChange} type="number" className="form-control" id="pincode" />
+     </div>
      <div className="form-group">
        <label for="exampleInputPassword1" >State</label>
-       <input type="text" className="form-control" id="state" />
+       <input value={this.state.state} onChange={this.onStateChange} type="text" className="form-control" id="state" />
      </div>
      <div className="form-group">
        <label for="exampleInputPassword1" >Country</label>
-       <input type="text" className="form-control" id="country" />
+       <input value={this.state.country} onChange={this.onCountryChange} type="text" className="form-control" id="country" />
      </div>
      
      <button type="submit" className="btn btn-primary"  >SignUp</button><br/>
